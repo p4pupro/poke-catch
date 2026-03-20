@@ -1,0 +1,18 @@
+{
+  "name": "PokéCatch!",
+  "short_name": "PokéCatch",
+  "description": "¡Atrapa Pokémon! Un juego para niños.",
+  "start_url": ".",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#87CEEB",
+  "theme_color": "#EF5350",
+  "icons": [
+    {
+      "src": "icons/pokeball.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

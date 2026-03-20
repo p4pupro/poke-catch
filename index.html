@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#EF5350">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="description" content="Catch Pokemon! A game for kids.">
+  <title>PokéCatch!</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="icons/pokeball.svg">
+  <link rel="apple-touch-icon" href="icons/pokeball.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- ===== CATCH SCREEN ===== -->
+  <div id="screen-catch" class="screen active">
+    <div class="lang-switcher">
+      <button class="lang-btn" data-lang="en"><img src="icons/flag-gb.svg" alt="English" draggable="false"></button>
+      <button class="lang-btn" data-lang="es"><img src="icons/flag-es.svg" alt="Español" draggable="false"></button>
+    </div>
+
+    <div class="scene">
+      <div class="encounter-zone">
+        <p id="encounter-text" class="encounter-text hidden"></p>
+        <div id="pokemon-display" class="pokemon-display hidden">
+          <img id="pokemon-image" alt="" draggable="false">
+          <p id="pokemon-name" class="pokemon-name"></p>
+        </div>
+      </div>
+
+      <div class="grass-decor"></div>
+
+      <div id="catch-ball" class="catch-ball hidden">
+        <div class="cb-glow"></div>
+        <div class="cb-top"></div>
+        <div class="cb-btm"></div>
+        <div class="cb-mid"><div class="cb-btn"></div></div>
+      </div>
+
+      <div class="pokeball-zone">
+        <div id="pokeball" class="pokeball hidden"></div>
+      </div>
+    </div>
+
+    <button id="btn-find" class="btn-find" data-i18n="btn_find"></button>
+
+    <div id="catch-result" class="catch-result hidden"></div>
+
+    <div id="loading" class="loading hidden">
+      <div class="pokeball pokeball-spin"></div>
+      <p class="loading-text" data-i18n="loading"></p>
+    </div>
+  </div>
+
+  <!-- ===== COLLECTION SCREEN ===== -->
+  <div id="screen-collection" class="screen">
+    <div class="collection-header">
+      <h1 data-i18n="collection_title"></h1>
+      <div class="counter-badge">
+        <span id="collection-count">0</span> / 151
+      </div>
+    </div>
+
+    <div id="collection-empty" class="collection-empty">
+      <div class="pokeball pokeball-gray"></div>
+      <p data-i18n="empty_msg"></p>
+      <p class="sub" data-i18n="empty_sub"></p>
+    </div>
+
+    <div id="carousel-wrapper" class="carousel-wrapper hidden">
+      <div class="carousel">
+        <div id="carousel-track" class="carousel-track"></div>
+      </div>
+      <button id="btn-prev" class="carousel-btn prev" data-i18n-aria="aria_prev">❮</button>
+      <button id="btn-next" class="carousel-btn next" data-i18n-aria="aria_next">❯</button>
+    </div>
+  </div>
+
+  <!-- ===== NAVIGATION ===== -->
+  <nav class="nav-bar">
+    <button class="nav-item active" data-screen="catch">
+      <span class="nav-icon">🎯</span>
+      <span data-i18n="nav_catch"></span>
+    </button>
+    <button class="nav-item" data-screen="collection">
+      <span class="nav-icon">⭐</span>
+      <span data-i18n="nav_collection"></span>
+    </button>
+  </nav>
+
+  <script src="js/i18n.js"></script>
+  <script src="js/sounds.js"></script>
+  <script src="js/pokemon.js"></script>
+  <script src="js/catch.js"></script>
+  <script src="js/collection.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
