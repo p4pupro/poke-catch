@@ -33,6 +33,15 @@ button {
   -webkit-tap-highlight-color: transparent;
 }
 
+button,
+.nav-item,
+.lang-btn,
+.carousel-btn,
+.btn-action,
+.btn-find {
+  touch-action: manipulation;
+}
+
 .hidden { display: none !important; }
 
 /* ========== SCREENS ========== */

@@ -4,6 +4,19 @@ var App = (function () {
       navigator.serviceWorker.register('sw.js').catch(function () {});
     }
 
+    var lastClickAt = 0;
+    document.addEventListener('click', function (e) {
+      var target = e.target.closest('button, [role="button"], .nav-item, .lang-btn');
+      if (!target) return;
+      var now = Date.now();
+      if (now - lastClickAt < 350) {
+        e.stopImmediatePropagation();
+        e.preventDefault();
+        return;
+      }
+      lastClickAt = now;
+    }, true);
+
     I18n.applyAll();
     CatchGame.init();
     Collection.init();
@@ -28,6 +41,15 @@ var App = (function () {
     });
 
     updateCollectionCount();
+
+    var lastTouchEnd = 0;
+    document.addEventListener('touchend', function (e) {
+      var now = Date.now();
+      if (now - lastTouchEnd <= 350) {
+        e.preventDefault();
+      }
+      lastTouchEnd = now;
+    }, { passive: false });
   }
 
   function switchScreen(name) {
